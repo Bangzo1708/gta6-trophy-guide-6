@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Legend — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: checklist, roadmap to the platinum, missable warnings and a cited guide for every trophy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ff6b4a'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='30' font-weight='bold' fill='white' text-anchor='middle'%3EVI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">VI</div>
+    <div>
+      <h1>Leonida Legend</h1>
+      <p class="subtitle">GTA 6 Trophy Guide &amp; Tracker — PlayStation 5 · 55 trophies · 1 Platinum, 2 Gold, 6 Silver, 46 Bronze · 28 hidden</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <label class="spoiler-toggle"><input type="checkbox" id="spoilerToggle"> <span>Hide story spoilers</span></label>
+    <button id="exportBtn" type="button">Export progress</button>
+    <label class="import-label" for="importFile">Import progress</label>
+    <input type="file" id="importFile" accept="application/json,.json" hidden>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="progress-block">
+    <div class="ring" id="progressRing"><span id="progressCount">0/55</span></div>
+    <div class="progress-text">
+      <p class="progress-line"><strong id="progressPct">0%</strong> to the Platinum</p>
+      <p class="progress-sub" id="progressSub">0 earned · 0 bronze · 0 silver · 0 gold</p>
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <p class="progress-note">Platinum needs all 54 others. Estimated road: ~200 hours, difficulty 4/10. One playthrough, no online trophies.</p>
+    </div>
+  </div>
+  <div class="nextup" id="nextUp">
+    <h2>Next up — easiest unearned</h2>
+    <ol id="nextUpList"></ol>
+  </div>
+</section>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" type="button" data-tab="checklist" aria-selected="true">Checklist</button>
+  <button class="tab" type="button" data-tab="roadmap" aria-selected="false">Roadmap to Platinum</button>
+  <button class="tab" type="button" data-tab="missables" aria-selected="false">Missables</button>
+  <button class="tab" type="button" data-tab="hundred" aria-selected="false">100% Completion</button>
+</nav>
+
+<main>
+  <section class="tabpage active" id="tab-checklist">
+    <div class="toolbar">
+      <input type="search" id="searchBox" placeholder="Search a trophy by name or description…">
+      <div class="chips" id="kindChips">
+        <button class="chip active" type="button" data-kind="all">All 55</button>
+        <button class="chip" type="button" data-kind="story">Story</button>
+        <button class="chip" type="button" data-kind="missable">Missable</button>
+        <button class="chip" type="button" data-kind="collectibles">Collectibles</button>
+        <button class="chip" type="button" data-kind="activities">Activities</button>
+        <button class="chip" type="button" data-kind="platinum">Platinum</button>
+      </div>
+      <select id="gradeFilter" aria-label="Filter by grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+      <select id="statusFilter" aria-label="Filter by status">
+        <option value="all">Earned + unearned</option>
+        <option value="unearned">Unearned only</option>
+        <option value="earned">Earned only</option>
+      </select>
+    </div>
+    <div class="layout">
+      <div class="list-wrap">
+        <p class="list-count" id="listCount"></p>
+        <ul class="trophy-list" id="trophyList"></ul>
+      </div>
+      <aside class="detail" id="detailPane" aria-live="polite">
+        <p class="detail-empty">Select a trophy to read its guide, sources and missable note.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="tabpage" id="tab-roadmap">
+    <h2>Roadmap to the Platinum — 4 stages, one playthrough</h2>
+    <p class="page-intro">Save manually at the start and end of every chapter — there is no mission replay. Free roam stays open after the story, and only one meditation is reported as potentially missable.</p>
+    <ol class="stages" id="stageList"></ol>
+  </section>
+
+  <section class="tabpage" id="tab-missables">
+    <h2>Missable trophies</h2>
+    <p class="page-intro">Built from the official descriptions and the guides cited below. Only one trophy is reported as potentially missable. Everything else can be earned in free roam after the story.</p>
+    <div id="missableList"></div>
+  </section>
+
+  <section class="tabpage" id="tab-hundred">
+    <h2>100% Completion — for “A Long Road” (Gold)</h2>
+    <p class="page-intro">Check the in-game checklist at Progress &gt; Stats &gt; 100% Completion. The numbers below come from KeenGamer: only a portion of each activity counts toward 100%, so do not chase every last one.</p>
+    <div class="hundred-grid" id="hundredGrid"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Sources: the names, descriptions and grades come from the official PS5 trophy list published by Exophase and PSNProfiles, who agree on every entry; the roadmap order, the 100% completion numbers and the missable warning come from KeenGamer; the story order and the time estimate come from PushSquare.</p>
+  <p>Honest note: every guide below is written in our own words from the official description. The game is days old and nothing here was checked by playing it; anything the community has not yet confirmed is marked “not yet confirmed”. No Rockstar logo or artwork is used anywhere in this guide.</p>
+  <p>Works fully offline — all files live in this app, progress is saved in your browser (localStorage). Export your progress regularly.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
